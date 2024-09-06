@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"features\/createEmployee[1:6]","start":1722937233305,"end":1722937235679,"title":"features\/createEmployee[1:6] 15:10:33.305-15:10:35.679 verify user is able to create a employee"},{"id":2,"group":1,"content":"features\/updateEmployee[1:5]","start":1722937243278,"end":1722937244762,"title":"features\/updateEmployee[1:5] 15:10:43.278-15:10:44.762 verify user is able to update a resource","className":"failed"},{"id":3,"group":1,"content":"features\/getEmployee[1:6]","start":1722937237827,"end":1722937240399,"title":"features\/getEmployee[1:6] 15:10:37.827-15:10:40.399 verify user is able to get a employee data with id","className":"failed"},{"id":4,"group":1,"content":"features\/getEmployee[2:12]","start":1722937240417,"end":1722937243208,"title":"features\/getEmployee[2:12] 15:10:40.417-15:10:43.208 verify user is unable to get employee data with invalid id","className":"failed"},{"id":5,"group":1,"content":"features\/deleteEmployee[1:3]","start":1722937236368,"end":1722937237724,"title":"features\/deleteEmployee[1:3] 15:10:36.368-15:10:37.724 verify user is able to delete a employee","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
